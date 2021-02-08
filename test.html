@@ -1,0 +1,33 @@
+<!-- https://zy.kubozy-cdn-baidu.com/20210127/18024_ff5709e9/1200k/hls/index.m3u8 -->
+<!-- https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8 -->
+<html>
+
+<head>
+    <link href="video-js-cdn.css" rel="stylesheet">
+    <script src="jquery-1.9.1.min.js"></script>
+    <script src="video.js"></script>
+    <script src="videojs-contrib-hls.js"></script>
+</head>
+
+<body>
+    <input type="text" id="url" style="width:100%"
+        value="https://zy.kubozy-cdn-baidu.com/20210127/18024_ff5709e9/1200k/hls/index.m3u8"> <input type="button" id="btn"
+        value="play">
+    <br><br>
+
+    <video id="video" class="video-js vjs-default-skin" preload="none" crossorigin="true" controls width="640"
+        height="268" controls>
+    </video>
+</body>
+<script>
+    $(document).ready(function () {
+        var urlString = 'https://zy.kubozy-cdn-baidu.com/20210127/18024_ff5709e9/1200k/hls/index.m3u8';
+        $("#btn").on("click", function () {
+            $("#video").html("<source src='" + $("#url").val() + "' type='application/x-mpegURL'>");
+            var ply = videojs("video");
+            ply.play();
+        });
+    });   
+</script>
+
+</html>
